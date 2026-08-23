@@ -2,7 +2,7 @@ import json
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-from sentinai.models import TargetAuditReport
+from models import TargetAuditReport
 
 console = Console()
 
