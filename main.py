@@ -1,9 +1,9 @@
 import asyncio
 import argparse
 from scanner import SecurityScanner
-from sentinai.cve_engine import CVEHunter
-from sentinai.models import TargetAuditReport
-from sentinai.reporter import AuditReporter
+from cve_engine import CVEHunter
+from models import TargetAuditReport
+from reporter import AuditReporter
 
 async def run_audit(target: str, output: str = None):
     scanner = SecurityScanner(target)
