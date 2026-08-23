@@ -15,6 +15,6 @@
 ## 🚀 Kurulum
 
 ```bash
-git clone [https://github.com/Berke-cmd/sentinai.git](https://github.com/Berke-cmd/sentinai.git)
+git clone https://github.com/Berke-cmd/sentinai.git
 cd sentinai
 pip install -r requirements.txt
