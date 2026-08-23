@@ -43,12 +43,14 @@ class SecurityScanner:
             if val:
                 audit_results.append(HeaderAuditResult(
                     header=sec_header,
-                    status="PRESENT"
+                    status="PRESENT",
+                    description=f"{sec_header} başlığı mevcut."
                 ))
             else:
                 audit_results.append(HeaderAuditResult(
                     header=sec_header,
-                    status="MISSING"
+                    status="MISSING",
+                    description=f"{sec_header} güvenlik başlığı eksik."
                 ))
 
         return headers_found, audit_results, ssl_valid
