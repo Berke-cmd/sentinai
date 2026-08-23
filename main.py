@@ -1,7 +1,6 @@
 import asyncio
 import argparse
 from scanner import SecurityScanner
-from cve_engine import CVEHunter
 from models import TargetAuditReport
 from reporter import AuditReporter
 
@@ -10,14 +9,13 @@ async def run_audit(target: str, output: str = None):
     headers, audit_results, ssl_valid = await scanner.scan()
 
     server_banner = headers.get("Server", headers.get("server", "Unknown"))
-    cves = await CVEHunter.query_cve_by_service(server_banner)
 
     report = TargetAuditReport(
         target_url=scanner.target_url,
         server_banner=server_banner,
         ssl_valid=ssl_valid,
         headers_analyzed=audit_results,
-        cves_found=cves
+        cves_found=[]
     )
 
     AuditReporter.render_cli(report)
@@ -26,7 +24,7 @@ async def run_audit(target: str, output: str = None):
         AuditReporter.export_json(report, output)
 
 def main():
-    parser = argparse.ArgumentParser(description="SentinAI - Asenkron Web Güvenliği & CVE Analiz Motoru")
+    parser = argparse.ArgumentParser(description="SentinAI - Asenkron Web Güvenliği Analiz Motoru")
     parser.add_argument("-t", "--target", required=True, help="Hedef URL")
     parser.add_argument("-o", "--output", help="Raporun kaydedileceği JSON dosya adı")
     args = parser.parse_args()
