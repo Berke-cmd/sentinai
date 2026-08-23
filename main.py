@@ -31,5 +31,5 @@ def main():
 
     asyncio.run(run_audit(args.target, args.output))
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
