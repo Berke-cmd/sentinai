@@ -1,6 +1,6 @@
 import asyncio
 import argparse
-from sentinai.scanner import SecurityScanner
+from scanner import SecurityScanner
 from sentinai.cve_engine import CVEHunter
 from sentinai.models import TargetAuditReport
 from sentinai.reporter import AuditReporter
