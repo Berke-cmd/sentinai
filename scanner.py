@@ -13,7 +13,7 @@ SECURITY_HEADERS = [
 ]
 
 class SecurityScanner:
-    def _init_(self, target_url: str, timeout: int = 10):
+    def __init__(self, target_url: str, timeout: int = 10):
         self.target_url = target_url if target_url.startswith("http") else f"https://{target_url}"
         self.timeout = aiohttp.ClientTimeout(total=timeout)
 
