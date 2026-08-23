@@ -1,7 +1,7 @@
 import ssl
 import aiohttp
 from typing import Dict, Tuple, List
-from sentinai.models import HeaderAuditResult
+from models import HeaderAuditResult
 
 SECURITY_HEADERS = [
     "Strict-Transport-Security",
